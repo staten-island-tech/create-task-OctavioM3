@@ -1,6 +1,6 @@
 const PatientList = [
     {
-        Name: "kjk",
+        Name: "jkl",
         DOB: 8798,
         MedicalHistory: "jhklkj",
         Gender: "m",
@@ -14,35 +14,35 @@ const PatientList = [
         Picture: "nkjnlnm",
     },
     {
-        Name: "kjk",
+        Name: "hju",
         DOB: 8798,
         MedicalHistory: "jhklkj",
         Gender: "m",
         Picture: "nkjnlnm",
     },
     {
-        Name: "kjk",
+        Name: "ftg",
         DOB: 8798,
         MedicalHistory: "jhklkj",
         Gender: "m",
         Picture: "nkjnlnm",
     },
     {
-        Name: "kjk",
+        Name: "cde",
         DOB: 8798,
         MedicalHistory: "jhklkj",
         Gender: "m",
         Picture: "nkjnlnm",
     },
     {
-        Name: "kjk",
+        Name: "bgf",
         DOB: 8798,
         MedicalHistory: "jhklkj",
         Gender: "m",
         Picture: "nkjnlnm",
     },
     {
-        Name: "kjk",
+        Name: "asd",
         DOB: 8798,
         MedicalHistory: "jhklkj",
         Gender: "m",

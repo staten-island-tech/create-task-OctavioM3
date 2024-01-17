@@ -16,3 +16,21 @@ function PatientProfile() {
 }
 
 PatientProfile();
+
+let sortPatients = PatientList.sort((a, b) => {
+  const nameA = a.Name.toUpperCase();
+  const nameB = b.Name.toUpperCase();
+  if (nameA < nameB) {
+    return - 1;
+  }
+    if (nameA > nameB) {
+      return 1;
+  }
+
+  return 1;
+})
+console.log(sortPatients);
+
+function SortPatientAlphabetically() {
+
+}
