@@ -22,6 +22,7 @@ function PatientProfile() {
 
 PatientProfile();
 
+//Algorithm
 let sortPatientsAlphabetically = PatientList.sort((a, b) => {
   const nameA = a.Name.toUpperCase();
   const nameB = b.Name.toUpperCase();
@@ -35,6 +36,8 @@ let sortPatientsAlphabetically = PatientList.sort((a, b) => {
   return 1;
 })
 console.log(sortPatientsAlphabetically);
+
+let PatientsByDOB = 
 
 function PatientsAlphabetically() {
   sortPatientsAlphabetically.forEach((patient) =>
