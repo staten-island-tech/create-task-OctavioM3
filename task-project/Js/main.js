@@ -26,10 +26,10 @@ PatientProfile();
 let sortPatientsAlphabetically = PatientList.sort((a, b) => {
   const nameA = a.Name.toUpperCase();
   const nameB = b.Name.toUpperCase();
-  if (nameA < nameB) {
+  if (nameA > nameB) {
     return - 1;
   }
-    if (nameA > nameB) {
+    if (nameA < nameB) {
       return 1;
   }
 
@@ -37,7 +37,28 @@ let sortPatientsAlphabetically = PatientList.sort((a, b) => {
 })
 console.log(sortPatientsAlphabetically);
 
-let PatientsByDOB = 
+let sortPatientByDOB = PatientList.sort((a, b) => {
+  const DOBA = a.DOB;
+  const DOBB = b.DOB;
+  const date = new Date();
+  let year = date.getFullYear();
+  const ageA = function() {
+    return year - DOBA;
+  }
+  const ageB = function() {
+    return year - DOBB;
+  }
+  if (ageA < ageB) {
+    return - 1;
+  }
+  if (ageA > ageB) {
+    return 1;
+  }
+  return 1
+  }
+)
+
+console.log(sortPatientByDOB)
 
 function PatientsAlphabetically() {
   sortPatientsAlphabetically.forEach((patient) =>
