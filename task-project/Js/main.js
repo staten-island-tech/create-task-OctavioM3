@@ -38,20 +38,18 @@ let sortPatientsAlphabetically = PatientList.sort((a, b) => {
 console.log(sortPatientsAlphabetically);
 
 let sortPatientByDOB = PatientList.sort((a, b) => {
-  const DOBA = a.DOB;
-  const DOBB = b.DOB;
   const date = new Date();
   let year = date.getFullYear();
-  const ageA = function() {
-    return year - DOBA;
+  const DOBA = function() {
+    return year - a.DOB;
   }
-  const ageB = function() {
-    return year - DOBB;
+  const DOBB = function() {
+    return year - b.DOB;
   }
-  if (ageA < ageB) {
+  if (DOBA < DOBB) {
     return - 1;
   }
-  if (ageA > ageB) {
+  if (DOBA > DOBB) {
     return 1;
   }
   return 1
@@ -66,6 +64,12 @@ function PatientsAlphabetically() {
 );
 }
 
+function PatientsDOB() {
+  sortPatientByDOB.forEach((patient) => 
+  Patient(patient)
+  );
+}
+
 function clearAll() {
   const PatientCard = document.querySelectorAll(".PatientCard");
   PatientCard.forEach((card) => card.remove());
@@ -75,4 +79,10 @@ DOMSelectors.NameButton.addEventListener("click", function (event) {
   event.preventDefault();
   clearAll();
   PatientsAlphabetically();
+})
+
+DOMSelectors.DOBButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  clearAll();
+  PatientsDOB();
 })
