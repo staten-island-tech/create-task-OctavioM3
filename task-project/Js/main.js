@@ -2,6 +2,8 @@ import { DOMSelectors } from "./dom";
 import { PatientList } from "./arr";
 import "../Css/style.css";
 
+
+
 function Patient(patient) {
   DOMSelectors.PatientList.insertAdjacentHTML(
     "beforeend",
@@ -23,18 +25,23 @@ function PatientProfile() {
 PatientProfile();
 
 //Algorithm
-let sortPatientsAlphabetically = PatientList.sort((a, b) => {
-  const nameA = a.Name.toUpperCase();
-  const nameB = b.Name.toUpperCase();
-  if (nameA > nameB) {
-    return - 1;
-  }
-    if (nameA < nameB) {
+    let sortPatientsAlphabetically = PatientList.sort((a, b) => {
+      const nameA = a.Name.toUpperCase();
+      const nameB = b.Name.toUpperCase();
+      if (nameA > nameB) {
+        return - 1;
+      }
+        if (nameA < nameB) {
+          return 1;
+      }
+    
       return 1;
-  }
-
-  return 1;
-})
+    })
+    for (let i = 0; i < PatientList.length; i++) {
+      if (i > 0) {
+        sortPatientsAlphabetically
+      }
+    }
 console.log(sortPatientsAlphabetically);
 
 let sortPatientByDOB = PatientList.sort((a, b) => {
