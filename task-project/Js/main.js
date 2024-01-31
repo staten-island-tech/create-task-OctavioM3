@@ -93,3 +93,7 @@ DOMSelectors.DOBButton.addEventListener("click", function (event) {
   clearAll();
   PatientsDOB();
 })
+
+DOMSelectors.SubmitButton.addEventListener("click", function (event) {
+  console.log()
+})
