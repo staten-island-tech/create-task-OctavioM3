@@ -44,6 +44,33 @@ PatientProfile();
     }
 console.log(sortPatientsAlphabetically);
 
+const calcAge = (DOB) => {
+  const BD = new Date(DOB)
+  const CD = new Date();
+  const age = CD.getFullYear() - BD.getFullYear()
+
+if (
+  CD.getMonth() < BD.getMonth() || 
+  (CD.getMonth() === BD.getMonth() &&
+  CD.getDate() < BD.getDate())
+) {
+  return age - 1;
+}
+
+return age;
+};
+
+const sortPatientByDOB = (PatientList) => {
+  return array.sort((a, b) => {
+    const AgeA = calcAge(a.DOB);
+    const AgeB = calcAge(b.DOB);
+
+    return AgeA - AgeB;
+  });
+};
+
+console.log(sortPatientByDOB);
+/*
 let sortPatientByDOB = PatientList.sort((a, b) => {
   const date = new Date();
   let year = date.getFullYear();
@@ -61,9 +88,7 @@ let sortPatientByDOB = PatientList.sort((a, b) => {
   }
   return 1
   }
-)
-
-console.log(sortPatientByDOB)
+)*/
 
 function PatientsAlphabetically() {
   sortPatientsAlphabetically.forEach((patient) =>
