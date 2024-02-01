@@ -64,8 +64,13 @@ const sortPatientByDOB = (PatientList) => {
   return array.sort((a, b) => {
     const AgeA = calcAge(a.DOB);
     const AgeB = calcAge(b.DOB);
-
-    return AgeA - AgeB;
+    if (AgeA > AgeB) {
+      return - 1;
+    }
+    if (AgeA < AgeB) {
+      return 1
+    }
+    return 1;
   });
 };
 
