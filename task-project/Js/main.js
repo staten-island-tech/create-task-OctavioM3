@@ -107,6 +107,21 @@ function PatientsDOB() {
   );
 }
 
+function NewPatient() {
+  let NameInput = DOMSelectors.NameInput.value
+  let DOBInput = DOMSelectors.DOBInput.value
+  let Gender = DOMSelectors.GenderSelector.value
+  DOMSelectors.PatientList.insertAdjacentHTML(
+    "beforeend",
+    `<div class="PatientCard"> 
+    <h2 class="Name">${NameInput}</h2> 
+    <img src="${patient.Picture}" alt="picture of ${NameInput}" class="PatientImage"</img> 
+    <h3 class="info"> ${DOBInput} 
+    ${Gender} 
+    ${patient.MedicalHistory} </h3>`
+  )
+}
+
 function clearAll() {
   const PatientCard = document.querySelectorAll(".PatientCard");
   PatientCard.forEach((card) => card.remove());
