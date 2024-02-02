@@ -2,17 +2,13 @@ import { DOMSelectors } from "./dom";
 import { PatientList } from "./arr";
 import "../Css/style.css";
 
-
-
 function Patient(patient) {
   DOMSelectors.PatientList.insertAdjacentHTML(
     "beforeend",
     `<div class="PatientCard"> 
-    <h2 class="Name">${patient.Name}</h2> 
-    <img src="${patient.Picture}" alt="picture of ${patient.Name}" class="PatientImage"</img> 
-    <h3 class="info"> ${patient.DOB} 
-    ${patient.Gender} 
-    ${patient.MedicalHistory} </h3>`
+    <h2 class="Name">${patient.name}</h2> 
+    <img src="${patient.Picture}" alt="picture of ${patient.name}" class="PatientImage"</img> 
+    <h3 class="info"> ${patient.DOB} </h3>`
   )
 }
 
@@ -24,25 +20,20 @@ function PatientProfile() {
 
 PatientProfile();
 
-//Algorithm
-    let sortPatientsAlphabetically = PatientList.sort((a, b) => {
-      const nameA = a.Name.toUpperCase();
-      const nameB = b.Name.toUpperCase();
+
+    PatientList.sort((a, b) => {
+      const nameA = a.name.toUpperCase;
+      const nameB = b.name.toUpperCase;
       if (nameA > nameB) {
-        return - 1;
+        return 1;
       }
-        if (nameA < nameB) {
-          return 1;
+        else if (nameA < nameB) {
+          return - 1;
       }
     
       return 1;
     })
-    for (let i = 0; i < PatientList.length; i++) {
-      if (i > 0) {
-        sortPatientsAlphabetically
-      }
-    }
-console.log(sortPatientsAlphabetically);
+
 
 const calcAge = (DOB) => {
   const BD = new Date(DOB)
@@ -60,66 +51,39 @@ if (
 return age;
 };
 
-const sortPatientByDOB = (PatientList) => {
-  return array.sort((a, b) => {
-    const AgeA = calcAge(a.DOB);
-    const AgeB = calcAge(b.DOB);
-    if (AgeA > AgeB) {
-      return - 1;
-    }
-    if (AgeA < AgeB) {
-      return 1
-    }
-    return 1;
-  });
+/*const sortByAge = (a, b) => {
+  const ageA = calcAge(a.DOB);
+  const ageB = calcAge(b.DOB);
+  return ageA - ageB;
 };
+*/
 
-console.log(sortPatientByDOB);
-/*
-let sortPatientByDOB = PatientList.sort((a, b) => {
-  const date = new Date();
-  let year = date.getFullYear();
-  const DOBA = function() {
-    return year - a.DOB;
+function sortPatientsAlphabetically() {
+  for (let i = 0; i < PatientList.length; i++) {
+    for (let j = i + 1; j < PatientList.length; j++) {
+      const nameI = PatientList[i].name.toUpperCase();
+      const nameJ = PatientList[j].name.toUpperCase();
+      if (nameI > nameJ) {
+        const first = PatientList[i];
+        PatientList[i] = PatientList[j];
+        PatientList[j] = first;
+      }
+    }
   }
-  const DOBB = function() {
-    return year - b.DOB;
-  }
-  if (DOBA < DOBB) {
-    return - 1;
-  }
-  if (DOBA > DOBB) {
-    return 1;
-  }
-  return 1
-  }
-)*/
-
-function PatientsAlphabetically() {
-  sortPatientsAlphabetically.forEach((patient) =>
-  Patient(patient)
-);
 }
 
-function PatientsDOB() {
-  sortPatientByDOB.forEach((patient) => 
-  Patient(patient)
-  );
-}
-
-function NewPatient() {
-  let NameInput = DOMSelectors.NameInput.value
-  let DOBInput = DOMSelectors.DOBInput.value
-  let Gender = DOMSelectors.GenderSelector.value
-  DOMSelectors.PatientList.insertAdjacentHTML(
-    "beforeend",
-    `<div class="PatientCard"> 
-    <h2 class="Name">${NameInput}</h2> 
-    <img src="${patient.Picture}" alt="picture of ${NameInput}" class="PatientImage"</img> 
-    <h3 class="info"> ${DOBInput} 
-    ${Gender} 
-    ${patient.MedicalHistory} </h3>`
-  )
+function sortByAge() {
+  for (let i = 0; i < PatientList.length; i++) {
+    for (let j = i + 1; j < PatientList.length; j++) {
+      const ageI = calcAge(PatientList[i].DOB);
+      const ageJ = calcAge(PatientList[j].DOB);
+      if (ageI > ageJ) {
+        const first = PatientList[i];
+        PatientList[i] = PatientList[j];
+        PatientList[j] = first;
+      }
+    }
+  }
 }
 
 function clearAll() {
@@ -130,15 +94,37 @@ function clearAll() {
 DOMSelectors.NameButton.addEventListener("click", function (event) {
   event.preventDefault();
   clearAll();
-  PatientsAlphabetically();
+  /*const sortPatientsAlphabetically = 
+  PatientList.sort((a, b) => {
+      const nameA = a.name.toUpperCase;
+      const nameB = b.name.toUpperCase;
+      if (nameA > nameB) {
+        return 1;
+      }
+        else if (nameA < nameB) {
+          return - 1;
+      }
+    
+      return - 1;
+    })/*/
+  /*function PatientsAlphabetically() {
+    sortPatientsAlphabetically.forEach((patient) =>
+    Patient(patient)
+  )}  
+  PatientsAlphabetically();*/
+  sortPatientsAlphabetically();
+  PatientList.forEach((patient) => Patient(patient));
 })
 
 DOMSelectors.DOBButton.addEventListener("click", function (event) {
   event.preventDefault();
   clearAll();
-  PatientsDOB();
-})
-
-DOMSelectors.SubmitButton.addEventListener("click", function (event) {
-  console.log()
+  /*const sortPatientByDOB = PatientList.sort(sortByAge);
+  function PatientsDOB() {
+    sortPatientByDOB.forEach((patient) => 
+    Patient(patient)
+    )}
+  PatientsDOB();*/
+  sortByAge();
+  PatientList.forEach((patient) => Patient(patient));
 })
