@@ -51,13 +51,6 @@ if (
 return age;
 };
 
-/*const sortByAge = (a, b) => {
-  const ageA = calcAge(a.DOB);
-  const ageB = calcAge(b.DOB);
-  return ageA - ageB;
-};
-*/
-
 function sortPatientsAlphabetically() {
   for (let i = 0; i < PatientList.length; i++) {
     for (let j = i + 1; j < PatientList.length; j++) {
@@ -94,24 +87,6 @@ function clearAll() {
 DOMSelectors.NameButton.addEventListener("click", function (event) {
   event.preventDefault();
   clearAll();
-  /*const sortPatientsAlphabetically = 
-  PatientList.sort((a, b) => {
-      const nameA = a.name.toUpperCase;
-      const nameB = b.name.toUpperCase;
-      if (nameA > nameB) {
-        return 1;
-      }
-        else if (nameA < nameB) {
-          return - 1;
-      }
-    
-      return - 1;
-    })/*/
-  /*function PatientsAlphabetically() {
-    sortPatientsAlphabetically.forEach((patient) =>
-    Patient(patient)
-  )}  
-  PatientsAlphabetically();*/
   sortPatientsAlphabetically();
   PatientList.forEach((patient) => Patient(patient));
 })
@@ -119,12 +94,6 @@ DOMSelectors.NameButton.addEventListener("click", function (event) {
 DOMSelectors.DOBButton.addEventListener("click", function (event) {
   event.preventDefault();
   clearAll();
-  /*const sortPatientByDOB = PatientList.sort(sortByAge);
-  function PatientsDOB() {
-    sortPatientByDOB.forEach((patient) => 
-    Patient(patient)
-    )}
-  PatientsDOB();*/
   sortByAge();
   PatientList.forEach((patient) => Patient(patient));
 })
